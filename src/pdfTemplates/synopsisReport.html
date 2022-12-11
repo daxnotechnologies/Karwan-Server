@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Account Details</title>
+
+    </head>
+
+
+    <body style="margin: 4rem; font-size: 130%;">
+
+        <table style="margin-top: 2rem;" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td width="20%">
+                    <img style="margin-left: 0; height: 94px;" src={{this.user.profilePic}} alt="Logo" />
+                </td>
+                <td width="100%">
+                    <div style="display: flex; flex-direction:column; align-items: center; justify-content: center;">
+                        <h2 style="text-align:left; margin:0 0 0.25rem 0;" style="color: black;margin-bottom: 10rem;">
+                            User Account Details
+                        </h2>
+                        
+                    </div>
+
+                </td>
+            </tr>
+
+        </table>
+        
+
+
+
+       
+
+        <table style="margin-top: 2rem;" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+                        <td style="text-align:center;padding: 5px;">
+                            Name:
+                        </td>
+                        <td  style="text-align:left;padding: 5px">
+                            {{this.user.Name}}
+                        </td>
+                        <td  style="text-align:center;padding: 5px;">
+                            Email:
+                        </td>
+                        <td style="text-align:left;padding: 5px;">
+                            {{this.user.email}}
+                        </td>
+                        <td  style="text-align:center;padding: 5px;">
+                            Contact:
+                        </td>
+                        <td style="text-align:left;padding: 5px;">
+                            {{this.user.Contact}}
+                        </td>
+                    </tr>
+                    <tr width="25%">
+                        <td style="text-align:center;padding: 5px;" >
+                            Address:
+                        </td>
+                        <td style="text-align:left;padding:5px;">
+                            {{this.user.address}}
+                        </td>
+                </tr>
+
+        </table>
+
+        <h3 style="display: inline-block; border-bottom:2px solid black;">
+            Family:
+        </h3>
+
+        {{#each family}}
+
+        <table style="margin-top: 2rem;" width="100%" border="2" cellspacing="0" cellpadding="0">
+            <tr  >
+                        <td style="text-align:center;padding: 5px;">
+                            Name:
+                        </td>
+                        <td  style="text-align:left;padding: 5px">
+                            {{this.name}}
+                        </td>
+                        <td  style="text-align:center;padding: 5px;">
+                            Contact:
+                        </td>
+                        <td style="text-align:left;padding: 5px;">
+                            {{this.contact}}
+                        </td>
+                        <td  style="text-align:center;padding: 5px;">
+                            Relation:
+                        </td>
+                        <td style="text-align:left;padding: 5px;">
+                            {{this.relation}}
+                        </td>
+                    </tr>
+                   
+                </tr>
+
+        </table>
+        {{/each}}
+
+        <table style="margin-top: 2rem;" width="100%" border="2" cellspacing="0" cellpadding="0">
+            <tr >
+                        <td style="text-align:center;padding: 5px;">
+                            Visa Status:
+                        </td>
+                        <td  style="text-align:left;padding: 5px">
+                            {{this.visastatus}}
+                        </td>
+                        <td  style="text-align:center;padding: 5px;">
+                            Wishlist Items:
+                        </td>
+                        <td style="text-align:left;padding: 5px;">
+                            {{this.wishlist}}
+                        </td>
+                        <td  style="text-align:center;padding: 5px;">
+                            Groups:
+                        </td>
+                        <td style="text-align:left;padding: 5px;">
+                            {{this.group}}
+                        </td>
+                    </tr>
+                 
+
+        </table>
+
+        <h3 style="display: inline-block; border-bottom:2px solid black;">
+            Orders:
+        </h3>
+
+        <div border="2">
+        {{#each orders}}
+        {{#each products}}
+        <table style="margin-top: 2rem;" width="100%" border="2" cellspacing="0" cellpadding="0">
+            <tr >
+                        <td style="align-items:center;padding: 5px;">                            
+                           Product: 
+                        </td>
+                        <td style="text-align:center;padding: 5px;">
+                            <p>{{this.product_id.title}}</p>
+                        </td>
+                        
+                        <td  style="text-align:center;padding: 5px;">
+                            Amount:
+                        </td>
+                        <td style="text-align:left;padding: 5px;">
+                            {{this.product_id.price}}
+                        </td>
+                        
+                    </tr>
+                 
+
+        </table>
+        <table style="margin-top: 2rem;" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+                    
+                         <td style="text-align:center;padding: 5px;">                            
+                            Total:
+                         </td>
+                         <td style="text-align:left;padding: 5px;">
+                             <p>{{this.amount}}</p>
+                         </td>
+                    </tr>
+        </table>
+        {{/each}}
+        
+        {{/each}}
+    </div>
+    <hr/>
+    <h3 style="display: inline-block; border-bottom:2px solid black;">
+        Hotel Bookings:
+    </h3>
+
+        {{#each hotels}}
+        <table style="margin-top: 2rem;" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+                    
+                         <td style="align-items:center;padding: 5px;">                            
+                            Hotel:
+                         </td>
+                         <td style="text-align:center;padding: 5px;">
+                             <p>{{this.hotel.name}}</p>
+                         </td>
+                    </tr>
+        </table>
+        {{#each bookedRoom}}
+        <table style="margin-top: 2rem;" width="100%" border="2" cellspacing="0" cellpadding="0">
+            <tr >
+                        
+                        <td style="align-items:center;padding: 5px;">                            
+                            Booked Checkin: 
+                         </td>
+                         <td style="text-align:center;padding: 5px;">
+                            <p>{{this.BookedCheckin}}</p>
+                         </td>
+                         <td style="align-items:center;padding: 5px;">                            
+                            Booked Checkout: 
+                         </td>
+                         <td style="text-align:center;padding: 5px;">
+                            <p>{{this.BookedCheckout}}</p>
+                         </td>
+                         <td style="align-items:center;padding: 5px;">                            
+                            Price: 
+                         </td>
+                         <td style="text-align:center;padding: 5px;">
+                             <p>{{this.Price}}</p>
+                         </td>
+                         
+                    </tr>
+        </table>
+        {{/each}}
+        <table style="margin-top: 2rem;" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+                    
+                         <td style="text-align:center;padding: 5px;">                            
+                            Total 
+                         </td>
+                         <td style="text-align:left;padding: 5px;">
+                             <p>{{this.Total}}</p>
+                         </td>
+                    </tr>
+        </table>
+        
+
+        {{/each}}
+       <hr/>
+       <h3 style="display: inline-block; border-bottom:2px solid black;">
+        Transport Bookings:
+    </h3>
+
+       {{#each transport}}
+        <table style="margin-top: 2rem;" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+                    
+                         <td style="align-items:center;padding: 5px;">                            
+                            Company:
+                         </td>
+                         <td style="text-align:center;padding: 5px;">
+                             <p>{{this.Transport.Name}}</p>
+                         </td>
+                    </tr>
+        </table>
+        {{#each bookedVehicle}}
+        <table style="margin-top: 2rem;" width="100%" border="2" cellspacing="0" cellpadding="0">
+            <tr >
+                        
+                        <td style="align-items:center;padding: 5px;">                            
+                            Booked Checkin: 
+                         </td>
+                         <td style="text-align:center;padding: 5px;">
+                            <p>{{this.BookedCheckin}}</p>
+                         </td>
+                         <td style="align-items:center;padding: 5px;">                            
+                            Booked Checkout: 
+                         </td>
+                         <td style="text-align:center;padding: 5px;">
+                            <p>{{this.BookedCheckout}}</p>
+                         </td>
+                         <td style="align-items:center;padding: 5px;">                            
+                            Price: 
+                         </td>
+                         <td style="text-align:center;padding: 5px;">
+                             <p>{{this.Price}}</p>
+                         </td>
+                         
+                    </tr>
+        </table>
+        {{/each}}
+        <table style="margin-top: 2rem;" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr >
+                    
+                         <td style="text-align:center;padding: 5px;">                            
+                            Total 
+                         </td>
+                         <td style="text-align:left;padding: 5px;">
+                             <p>{{this.Total}}</p>
+                         </td>
+                    </tr>
+        </table>
+        
+
+        {{/each}}
+        <hr/>
+        <h3 style="display: inline-block; border-bottom:2px solid black;">
+         Additional Payments:
+     </h3>
+     <h4 style="display: inline-block; border-bottom:2px solid black;">
+        Advances:
+    </h4>
+ 
+        {{#each advances}}
+        
+         <table style="margin-top: 2rem;" width="100%" border="2" cellspacing="0" cellpadding="0">
+             <tr >
+                        
+                          <td style="align-items:center;padding: 5px;">                            
+                             Account Number: 
+                          </td>
+                          <td style="text-align:center;padding: 5px;">
+                             <p>{{this.Number}}</p>
+                          </td>
+                          <td style="align-items:center;padding: 5px;">                            
+                             Amount: 
+                          </td>
+                          <td style="text-align:center;padding: 5px;">
+                              <p>{{this.Amount}}</p>
+                          </td>
+                          <td style="align-items:center;padding: 5px;">                            
+                            Date: 
+                         </td>
+                         <td style="text-align:center;padding: 5px;">
+                             <p>{{this.Date}}</p>
+                         </td>
+                        
+                            <td style="align-items:center;padding: 5px;">                            
+                                Description: 
+                             </td>
+                             <td style="text-align:center;padding: 5px;">
+                                 <p>{{this.Description}}</p>
+                             </td>
+                     </tr>
+                     
+         </table>
+        
+         
+ 
+         {{/each}}
+
+         <h4 style="display: inline-block; border-bottom:2px solid black;">
+            Cheques:
+        </h4>
+     
+            {{#each cheques}}
+            
+             <table style="margin-top: 2rem;" width="100%" border="2" cellspacing="0" cellpadding="0">
+                 <tr >
+                             
+                             
+                              <td style="align-items:center;padding: 5px;">                            
+                                 Cheque Number: 
+                              </td>
+                              <td style="text-align:center;padding: 5px;">
+                                 <p>{{this.Number}}</p>
+                              </td>
+                              <td style="align-items:center;padding: 5px;">                            
+                                 Amount: 
+                              </td>
+                              <td style="text-align:center;padding: 5px;">
+                                  <p>{{this.Amount}}</p>
+                              </td>
+                              <td style="align-items:center;padding: 5px;">                            
+                                Date: 
+                             </td>
+                             <td style="text-align:center;padding: 5px;">
+                                 <p>{{this.Date}}</p>
+                             </td>
+                             <tr>
+                                <td style="align-items:center;padding: 5px;">                            
+                                    Description: 
+                                 </td>
+                                 <td style="text-align:center;padding: 5px;">
+                                     <p>{{this.Description}}</p>
+                                 </td>
+                       
+             </table>
+            
+             
+     
+             {{/each}}
+
+
+             <h4 style="display: inline-block; border-bottom:2px solid black;">
+                Transactions:
+            </h4>
+         
+                {{#each transactions}}
+                
+                 <table style="margin-top: 2rem;" width="100%" border="2" cellspacing="0" cellpadding="0">
+                     <tr >
+                                 
+                                 
+                                  <td style="align-items:center;padding: 5px;">                            
+                                     Transaction Id: 
+                                  </td>
+                                  <td style="text-align:center;padding: 5px;">
+                                     <p>{{this.Transaction_id}}</p>
+                                  </td>
+                                  <td style="align-items:center;padding: 5px;">                            
+                                    Currency: 
+                                 </td>
+                                 <td style="text-align:center;padding: 5px;">
+                                     <p>{{this.currency}}</p>
+                                 </td>
+                                  <td style="align-items:center;padding: 5px;">                            
+                                     Amount: 
+                                  </td>
+                                  <td style="text-align:center;padding: 5px;">
+                                      <p>{{this.Amount}}</p>
+                                  </td>
+                                  <td style="align-items:center;padding: 5px;">                            
+                                    Transaction Status: 
+                                 </td>
+                                 <td style="text-align:center;padding: 5px;">
+                                     <p>{{this.TransanctionStatus}}</p>
+                                 </td>
+                              
+                           
+                 </table>
+                
+                 
+         
+                 {{/each}}
+        </div>
+    </body>
+
+</html>
